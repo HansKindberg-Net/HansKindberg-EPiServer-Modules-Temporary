@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<BuildDependsOn>
+			$(BuildDependsOn);
+			CopyFiles
+		</BuildDependsOn>
+		<CopyAllFilesToSingleFolderForPackageDependsOn>
+			ExcludeFilesOnPublish;
+			IncludeFilesOnPublish;
+			$(CopyAllFilesToSingleFolderForPackageDependsOn);
+		</CopyAllFilesToSingleFolderForPackageDependsOn>
+	</PropertyGroup>
+	<Target Name="CopyFiles" Condition="@(FileToCopy) != ''">
+		<Message
+			Condition="%(CopyAlways) OR (!Exists('%(DestinationFile)') OR $([System.DateTime]::Parse('%(ModifiedTime)').Ticks) > $([System.IO.File]::GetLastWriteTime('%(DestinationFile)').Ticks))"
+			Importance="$(CopyFilesMessageImportance)"
+			Text="Target 'CopyFiles': Copying '%(FileToCopy.FullPath)' to '%(DestinationFile)'."
+		/>
+		<Copy
+			Condition="%(CopyAlways) OR (!Exists('%(DestinationFile)') OR $([System.DateTime]::Parse('%(ModifiedTime)').Ticks) > $([System.IO.File]::GetLastWriteTime('%(DestinationFile)').Ticks))"
+			DestinationFiles="%(DestinationFile)"
+            SourceFiles="%(FileToCopy.FullPath)"
+		/>
+	</Target>
+	<Target Name="ExcludeFilesOnPublish" BeforeTargets="ExcludeFilesFromPackage">
+		<ItemGroup>
+			<!--<FileToExcludeFromPackage Include="Modules\_protected\**\*" />-->
+		</ItemGroup>
+		<ItemGroup>
+			<ExcludeFromPackageFiles Include="@(FileToExcludeFromPackage)">
+				<FromTarget>Project</FromTarget>
+			</ExcludeFromPackageFiles>
+		</ItemGroup>
+		<Message
+			Importance="$(PublishMessageImportance)"
+			Text="Excluding following files from package: @(FileToExcludeFromPackage->'%(RelativeDir)%(RecursiveDir)%(Filename)%(Extension)')"
+		/>
+	</Target>
+	<Target Name="IncludeFilesOnPublish">
+		<!--
+		<ItemGroup>
+			<ProtectedModules Include="Modules\_protected\**\*" />
+			<FilesForPackagingFromProject Include="@(ProtectedModules)">
+				<DestinationRelativePath>Modules\_protected\%(RecursiveDir)%(Filename)%(Extension)</DestinationRelativePath>
+			</FilesForPackagingFromProject>
+			<FileToIncludeInPackage Include="@(ProtectedModules)" />
+		</ItemGroup>
+		<Message
+			Importance="$(PublishMessageImportance)"
+			Text="Including following files in package: @(FileToIncludeInPackage->'%(RelativeDir)%(RecursiveDir)%(Filename)%(Extension)')"
+		/>
+		-->
+	</Target>
+</Project>

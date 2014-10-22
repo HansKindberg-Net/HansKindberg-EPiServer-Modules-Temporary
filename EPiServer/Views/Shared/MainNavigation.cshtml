@@ -1,0 +1,33 @@
+﻿@model  HansKindberg.EPiServer.Modules.TestApplication.Models.ViewModels.ILayoutModel
+<nav class="navbar navbar-default navbar-center" role="navigation">
+	<div class="navbar-inner">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-menu">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			@Html.CreateContentLink(Model.StartPage, Model.StartPage.NavigationItemName, new Dictionary<string, object> {{"class", "navbar-brand" + (Model.AtHome ? " active" : string.Empty)}})
+		</div>
+		@if(Model.MainNavigation != null && Model.MainNavigation.Any())
+		{
+			<div class="collapse navbar-collapse" id="navbar-collapse-menu">
+				<ul class="nav navbar-nav">
+					@foreach(var mainNavigationItem in Model.MainNavigation)
+					{
+						if(mainNavigationItem.Selected)
+						{
+							<li class="active">@Html.CreateContentLink(mainNavigationItem.Value)</li>
+						}
+						else
+						{
+							<li>@Html.CreateContentLink(mainNavigationItem.Value)</li>
+						}
+					}
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		}
+	</div>
+</nav>

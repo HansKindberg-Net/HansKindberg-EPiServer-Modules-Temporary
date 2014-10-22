@@ -1,0 +1,19 @@
+﻿@model HansKindberg.EPiServer.Modules.ModuleTemplate.Models.ViewModel
+<!DOCTYPE html>
+<html lang="@Model.Layout.UiCulture.Name">
+	<head>
+		<title>@Model.Layout.Title</title>
+	</head>
+	<body>
+		@if(IsSectionDefined("Heading"))
+		{
+			@RenderSection("Heading")
+			;
+		}
+		else
+		{
+			@Html.Partial("~/Views/Shared/Heading.cshtml", Model.Layout)
+		}
+		@RenderSection("MainContent", true)
+	</body>
+</html>

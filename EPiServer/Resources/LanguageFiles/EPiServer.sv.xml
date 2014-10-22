@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<languages>
+	<language id="sv" name="svenska">
+		<!--
+		<categories>
+			<category name="RegistrationMethod">
+				<description>Anmälningsform</description>
+			</category>
+		</categories>
+		<headings>
+			<heading name="Personalization">
+				<description>Personalisering</description>
+			</heading>
+		</headings>
+		-->
+		<!--http://world.episerver.com/Blogs/Linus-Ekstrom/Dates/2013/12/New-standardized-format-for-content-type-localizations/-->
+		<!--
+		<groups>
+			<advanced>Övriga inställningar</advanced>
+		</groups>
+		-->
+		<contenttypes>
+			<icontentdata>
+				<properties>
+					<heading>
+						<caption>Rubrik (h1) på sidan</caption>
+						<help>Rubrik på sidan. Visas som h1 i html. Om detta fält lämnas tomt kommer sidan namn att visas som rubrik på sidan istället.</help>
+					</heading>
+					<mainbody>
+						<caption>Innehåll</caption>
+						<help>Innehåll kommer att visas i huvuddelen på sidan. Du kan skriva text, infoga bilder, skapa länkar m.m.</help>
+					</mainbody>
+					<navigationitemname>
+						<caption>Namn i topp-menyn</caption>
+						<help>Sidans namn i topp-menyn.</help>
+					</navigationitemname>
+				</properties>
+			</icontentdata>
+			<informationpage>
+				<description>Vanlig informationssida.</description>
+				<name>Informationssida</name>
+			</informationpage>
+			<pagelist>
+				<description>Sidlista</description>
+				<name>Sidlista</name>
+				<properties>
+					<categoryfilter>
+						<caption>Kategori filter</caption>
+						<help>Filtrerar listan efter kategorier.</help>
+					</categoryfilter>
+					<disablevisibleinmenu>
+						<caption>Visa dolda</caption>
+						<help>Visar även sidor som inte visas i menyn/navigering.</help>
+					</disablevisibleinmenu>
+					<maxcount>
+						<caption>Antal</caption>
+						<help>Max antal poster som ska visas i listan. Om inget värde, eller ett negativt värde, anges visas alla poster.</help>
+					</maxcount>
+					<pagelisttype>
+						<caption>Listtyp</caption>
+						<help>Listtypen avgör vilken information som ska visas för varje sida i listan.</help>
+						<types>
+							<introduction>Ingress</introduction>
+							<news>Nyhet</news>
+							<simplenews>Nyhet - enkel</simplenews>
+						</types>
+					</pagelisttype>
+					<pagetypefiltersettingsblock>
+						<caption>Sidtyper</caption>
+						<help>Sidtyperna som ska visas eller exkluderas i listan. Om ingen sidtyp anges visas alla sidtyper som finns under rotsidan/rotsidorna.</help>
+					</pagetypefiltersettingsblock>
+					<paginationsettingsblock>
+						<caption>Bläddring</caption>
+						<help>Vid bläddring visas bara ett antal poster åt gången. Antalet avgörs av värdet på "Antal poster per sida".</help>
+					</paginationsettingsblock>
+					<recursive>
+						<caption>Rekursivt</caption>
+						<help>Söker rekursivt ner i trädstrukturen.</help>
+					</recursive>
+					<rootscontentarea>
+						<caption>Rotsidor</caption>
+						<help>Sidor som undersidor ska listas från.</help>
+					</rootscontentarea>
+					<sortsettingsblock>
+						<caption>Sortering</caption>
+						<help>Sortering</help>
+					</sortsettingsblock>
+				</properties>
+			</pagelist>
+			<pagetypefiltersettingsblock>
+				<description>Sidtyp-filter</description>
+				<name>Sidtyp-filter</name>
+				<properties>
+					<exclude>
+						<caption>Exkludera</caption>
+						<help>Exkluderar valda sidtyper.</help>
+					</exclude>
+					<types>
+						<caption>Typer</caption>
+						<help></help>
+					</types>
+				</properties>
+			</pagetypefiltersettingsblock>
+			<paginationsettingsblock>
+				<description>Vid bläddring visas bara ett antal poster åt gången. Antalet avgörs av värdet på "Antal poster per sida".</description>
+				<name>Bläddring</name>
+				<properties>
+					<enabled>
+						<caption>Aktiverad</caption>
+						<help>Vid bläddring visas bara ett antal poster åt gången. Antalet avgörs av värdet på "Antal poster per sida".</help>
+					</enabled>
+					<maximumnumberofdisplayedpages>
+						<caption>Antal sidor åt gången</caption>
+						<help>Maximalt antal paginering-sidor som visas åt gången. Om inget, noll, eller ett negativt, värde anges, visas 10 sidor.</help>
+					</maximumnumberofdisplayedpages>
+					<pagesize>
+						<caption>Antal poster per sida</caption>
+						<help>Antal poster som ska visas per sida vid bläddring. Om inget, noll, eller ett negativt, värde anges, visas 10 poster.</help>
+					</pagesize>
+				</properties>
+			</paginationsettingsblock>
+			<sortsettingsblock>
+				<description>Sortering</description>
+				<name>Sortering</name>
+				<properties>
+					<direction>
+						<caption>Stigande/fallande</caption>
+						<help></help>
+					</direction>
+					<order>
+						<caption>Sortera efter</caption>
+						<help></help>
+					</order>
+				</properties>
+			</sortsettingsblock>
+			<startpage>
+				<description>Startsida</description>
+				<name>Startsida</name>
+			</startpage>
+		</contenttypes>
+		<system>
+			<editutil>
+				<sortdirection>
+					<ascending>Stigande</ascending>
+					<descending>Fallande</descending>
+				</sortdirection>
+				<sortorder>
+					<changed>Ändrad</changed>
+					<created>Skapad</created>
+					<heading>Rubrik</heading>
+					<index>Sorterings-index</index>
+					<name>Namn</name>
+					<published>Publicerad</published>
+					<rank>Rank</rank>
+					<saved>Sparad</saved>
+				</sortorder>
+			</editutil>
+		</system>
+	</language>
+</languages>

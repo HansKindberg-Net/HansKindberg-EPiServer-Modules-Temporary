@@ -1,0 +1,21 @@
+﻿@model HansKindberg.EPiServer.Modules.TestApplication.Models.ViewModels.PageListViewModel
+@section MainContent
+{
+	@Html.PropertyFor(model => model.CurrentPage.MainBody)
+	@if(Model.Pagination.Page.Items != null && Model.Pagination.Page.Items.Any())
+	{
+		<div id="@Model.Anchor">
+			<h2>Head-paginering</h2>
+			@Html.Partial("~/Views/Shared/Pagination.cshtml", Model.Pagination)
+			<h2>Sidor</h2>
+			<ul>
+				@foreach(var page in Model.Pagination.Page.Items)
+				{
+					<li>@Html.CreateContentLink(page.Value)</li>
+				}
+			</ul>
+			<h2>Foot-paginering</h2>
+			@Html.Partial("~/Views/Shared/Pagination.cshtml", Model.Pagination)
+		</div>
+	}
+}

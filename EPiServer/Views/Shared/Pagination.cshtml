@@ -1,0 +1,62 @@
+﻿@using HansKindberg.EPiServer.Modules.TestApplication.Business.Extensions
+@model HansKindberg.EPiServer.Modules.TestApplication.Business.Pagination.IPaginationInformation
+@if(Model.Pages.Count() > 1)
+{
+	<div class="row">
+		<div class="col-md-12">
+			<ul style="clear: both; display: block;">
+				@if(Model.FirstPageUrl == null || Model.Page.Index == 0)
+				{
+					<li style="float: left; list-style-type: none; margin-right: 1em;"><span>|&lt;</span></li>
+				}
+				else
+				{
+					<li style="float: left; list-style-type: none; margin-right: 1em;"><a href="@Model.FirstPageUrl.PathAndQueryAndFragment()" title="First">|&lt;</a></li>
+				}
+				@if(Model.PreviousPageUrl == null)
+				{
+					<li style="float: left; list-style-type: none; margin-right: 1em;"><span>&lt;&lt;</span></li>
+				}
+				else
+				{
+					<li style="float: left; list-style-type: none; margin-right: 1em;"><a href="@Model.PreviousPageUrl.PathAndQueryAndFragment()" title="Previous">&lt;&lt;</a></li>
+				}
+				@if(Model.PreviousPageGroupUrl != null)
+				{
+					<li style="float: left; list-style-type: none; margin-right: 1em;"><a href="@Model.PreviousPageGroupUrl.PathAndQueryAndFragment()" title="Previous group">...</a></li>
+				}
+				@foreach(var page in Model.DisplayedPages)
+				{
+					if(page.Current)
+					{
+						<li style="background-color: red; float: left; list-style-type: none; margin-right: 1em;"><span>@page.Index</span></li>
+					}
+					else
+					{
+						<li style="float: left; list-style-type: none; margin-right: 1em;"><a href="@page.Url.PathAndQueryAndFragment()">@page.Index</a></li>
+					}
+				}
+				@if(Model.NextPageGroupUrl != null)
+				{
+					<li style="float: left; list-style-type: none; margin-right: 1em;"><a href="@Model.NextPageGroupUrl.PathAndQueryAndFragment()" title="Next group">...</a></li>
+				}
+				@if(Model.NextPageUrl == null)
+				{
+					<li style="float: left; list-style-type: none; margin-right: 1em;"><span>&gt;&gt;</span></li>
+				}
+				else
+				{
+					<li style="float: left; list-style-type: none; margin-right: 1em;"><a href="@Model.NextPageUrl.PathAndQueryAndFragment()" title="Next">&gt;&gt;</a></li>
+				}
+				@if(Model.LastPageUrl == null || Model.Page.Last)
+				{
+					<li style="float: left; list-style-type: none; margin-right: 1em;"><span>&gt;|</span></li>
+				}
+				else
+				{
+					<li style="float: left; list-style-type: none; margin-right: 1em;"><a href="@Model.LastPageUrl.PathAndQueryAndFragment()" title="Last">&gt;|</a></li>
+				}
+			</ul>
+		</div>
+	</div>
+}

@@ -1,0 +1,60 @@
+﻿@model  HansKindberg.EPiServer.Modules.TestApplication.Models.ViewModels.ILayoutModel
+@if(Model.LeftNavigation != null)
+{
+	<div class="col-md-3">
+		@if(Model.LeftNavigation.Any())
+		{
+			<nav>
+				<div class="navbar-default sidebar">
+					<div>
+						<ul class="nav navbar-nav">
+							@foreach(var leftNavigationNode in Model.LeftNavigation)
+							{
+								if(leftNavigationNode.PreviousNode != null && leftNavigationNode.PreviousNode.Level > leftNavigationNode.Level)
+								{
+									for(int i = 0; i < leftNavigationNode.PreviousNode.Level - leftNavigationNode.Level; i++)
+									{
+										@:</ul>
+										@:</li>
+									}
+								}
+								if(!leftNavigationNode.Leaf)
+								{
+									if(leftNavigationNode.Selected)
+									{
+										@:<li class="nav-header active">
+									}
+									else if(leftNavigationNode.SelectedAncestor)
+									{
+										@:<li class="nav-header active-ancestor">
+									}
+									else
+									{
+										@:<li class="nav-header">
+									}
+									@Html.CreateContentLink(leftNavigationNode.Value)
+									@:<ul class="nav tree">
+								}
+								else
+								{
+									if(leftNavigationNode.Selected)
+									{
+										@:<li class="active">@Html.CreateContentLink(leftNavigationNode.Value)</li>
+									}
+									else if(leftNavigationNode.SelectedAncestor)
+									{
+										@:<li class="active-ancestor">@Html.CreateContentLink(leftNavigationNode.Value)</li>
+									}
+									else
+									{
+										@:<li>@Html.CreateContentLink(leftNavigationNode.Value)</li>
+									}
+								}
+							}
+						</ul>
+					</div>
+				</div>
+			</nav>
+		}
+	</div>
+}

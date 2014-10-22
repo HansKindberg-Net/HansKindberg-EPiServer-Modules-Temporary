@@ -1,0 +1,23 @@
+﻿@model HansKindberg.EPiServer.Modules.TestApplication.Business.SystemInformation
+@if(Model != null)
+{
+	<div class="system-information @Model.Type.ToString().ToLowerInvariant()">
+		@if(!string.IsNullOrEmpty(Model.Heading))
+		{
+			<h2>@Model.Heading</h2>
+		}
+		@if(!string.IsNullOrEmpty(Model.Information))
+		{
+			<p>@Model.Information</p>
+		}
+		@if(Model.DetailedInformation != null && Model.DetailedInformation.Any())
+		{
+			<ul>
+				@foreach(string detail in Model.DetailedInformation)
+				{
+					<li>@detail</li>
+				}
+			</ul>
+		}
+	</div>
+}

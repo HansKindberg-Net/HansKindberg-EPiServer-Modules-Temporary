@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<languages>
+	<language id="sv" name="svenska">
+		<views>
+			<shared>
+				<contentproperties>
+					<isnull>Null</isnull>
+					<name>Namn</name>
+					<properties>Egenskaper</properties>
+					<value>Värde</value>
+				</contentproperties>
+				<forms>
+					<authenticationform>
+						<password>Lösenord</password>
+						<passworddescription>Lösenord (description)</passworddescription>
+						<passwordprompt>Fyll i ditt lösenord (prompt)</passwordprompt>
+						<passwordrequired>Du måste ange ett lösenord</passwordrequired>
+						<persist>Kom ihåg mig</persist>
+						<persistdescription>Kom ihåg mig (description)</persistdescription>
+						<persistprompt>Ange om du ska bli automatiskt inloggad i fortsättningen.</persistprompt>
+						<username>Användarnamn</username>
+						<usernamedescription>Användarnamn (description)</usernamedescription>
+						<usernameprompt>Fyll i ditt användarnamn (prompt)</usernameprompt>
+						<usernamerequired>Du måste ange ett användarnamn</usernamerequired>
+					</authenticationform>
+				</forms>
+				<layout>
+					<test>Översatt test-värde för layout.</test>
+				</layout>
+			</shared>
+			<informationpage>
+				<relatedinformation>Relaterad information</relatedinformation>
+				<reviewDate>Sidan granskad</reviewDate>
+				<responsibleofcontent>Innehållsansvarig</responsibleofcontent>
+				<publishedby>Publicerad av</publishedby>
+				<shorturl>Kortadress</shorturl>
+				<audience>Avsedd för</audience>
+			</informationpage>
+		</views>
+	</language>
+</languages>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<languages>
+	<language id="sv" name="svenska">
+		<common>
+			<error>Fel</error>
+			<information>Information</information>
+			<warning>Varning</warning>
+		</common>
+	</language>
+</languages>

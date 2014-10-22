@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<languages>
+	<language id="en" name="English">
+		<common>
+			<error>Error</error>
+			<information>Information</information>
+			<warning>Warning</warning>
+		</common>
+	</language>
+</languages>

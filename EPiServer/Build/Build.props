@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<CopyFilesMessageImportance Condition="$(CopyFilesMessageImportance) == ''">high</CopyFilesMessageImportance>
+		<PackagesDirectory Condition="$(PackagesDirectory) == ''">$(SolutionDir)packages\</PackagesDirectory>
+		<PublishMessageImportance Condition="$(PublishMessageImportance) == ''">high</PublishMessageImportance>
+	</PropertyGroup>
+	<ItemDefinitionGroup>
+		<FileToCopy>
+			<CopyAlways>false</CopyAlways>
+		</FileToCopy>
+	</ItemDefinitionGroup>
+	<ItemGroup>
+		<FileToCopy Include="$(SolutionDir)Data\Database\Database.txt">
+			<DestinationFile>App_Data\dbEPiServer.mdf</DestinationFile>
+		</FileToCopy>
+		<FileToCopy Include="$(PackagesDirectory)EPiServer.*\content\modules\_protected\**\*.zip">
+			<CopyAlways>true</CopyAlways>
+			<DestinationFile>Modules\_protected\$([System.IO.Directory]::GetParent('%(Identity)').Name)\%(Filename)%(Extension)</DestinationFile>
+		</FileToCopy>
+	</ItemGroup>
+</Project>
