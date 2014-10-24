@@ -1,12 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <languages>
 	<language id="en" name="English">
-		<modules>
+		<plugins>
 			<template>
 				<description>Module-template description</description>
-				<displayname see="/modules/template/name" />
+				<displayname see="/plugins/template/name" />
 				<name>Module-template name</name>
+				<tabs>
+					<send>
+						<description>Send-description</description>
+						<name>Send</name>
+					</send>
+					<settings>
+						<description>Settings-description</description>
+						<name>Settings</name>
+					</settings>
+				</tabs>
 			</template>
-		</modules>
+		</plugins>
 	</language>
 </languages>

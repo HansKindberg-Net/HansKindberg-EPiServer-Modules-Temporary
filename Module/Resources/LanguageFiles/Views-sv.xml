@@ -1,11 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <languages>
 	<language id="sv" name="svenska">
-		<modules>
+		<plugins>
 			<template>
 				<description>Modul-mall beskrivning</description>
+				<displayname see="/plugins/template/name" />
 				<name>Modul-mall namn</name>
+				<tabs>
+					<send>
+						<description>Sänd-beskrivning</description>
+						<name>Sänd</name>
+					</send>
+					<settings>
+						<description>Sänd-beskrivning</description>
+						<name>Inställningar</name>
+					</settings>
+				</tabs>
 			</template>
-		</modules>
+		</plugins>
 	</language>
 </languages>

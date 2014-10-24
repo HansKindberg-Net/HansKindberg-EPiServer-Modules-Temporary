@@ -4,9 +4,7 @@
 		<authors>$author$</authors>
 		<!--<copyright>Copyright 2013</copyright>-->
 		<dependencies>
-			<dependency id="CMS" version="3.0" />
-			<dependency id="EPiServer" version="7.0" />
-			<dependency id="HansKindberg.EPiServer.Shell.Modules" version="0.0.0.1" />
+			<dependency id="HansKindberg" version="0.0.0.1" />
 		</dependencies>
 		<description>$description$</description>
 		<!--<iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>-->
@@ -16,7 +14,7 @@
 		<projectUrl>https://github.com/HansKindberg-Net/HansKindberg-EPiServer-Modules-Temporary</projectUrl>
 		<!--<releaseNotes>Summary of changes made in this release of the package.</releaseNotes>-->
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
-		<tags>EPiServerModulePackage</tags>
+		<!--<tags></tags>-->
 		<title>$title$</title>
 		<version>$version$</version>
 	</metadata>

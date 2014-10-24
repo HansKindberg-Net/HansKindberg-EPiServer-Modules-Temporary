@@ -6,20 +6,20 @@ using EPiServer.Framework.Web.Resources;
 using EPiServer.PlugIn;
 using EPiServer.ServiceLocation;
 using EPiServer.Shell.Modules;
-using HansKindberg.EPiServer.Modules.ModuleTemplate.Models;
+using HansKindberg.EPiServer.ModuleTemplate.Models.ViewModels;
 using HansKindberg.EPiServer.Shell;
 using HansKindberg.EPiServer.Shell.Modules;
 using HansKindberg.EPiServer.Shell.Modules.Web.Mvc.Controllers;
 using HansKindberg.EPiServer.Shell.Modules.Web.Mvc.Models;
 
-namespace HansKindberg.EPiServer.Modules.ModuleTemplate.Controllers
+namespace HansKindberg.EPiServer.ModuleTemplate.Controllers
 {
 	[GuiPlugIn(Area = PlugInArea.AdminMenu, DisplayName = "ModuleTemplate", LanguagePath = _localizationPath, UrlFromModuleFolder = "Template")]
 	public class TemplateController : Controller<TemplateViewModel>
 	{
 		#region Fields
 
-		private const string _localizationPath = LocalizationPaths.Modules + "/template";
+		private const string _localizationPath = LocalizationPaths.Plugins + "/template";
 
 		#endregion
 

@@ -1,86 +1,29 @@
-﻿@using EPiServer.Framework.Web.Resources
-@inherits System.Web.Mvc.WebViewPage<HansKindberg.EPiServer.Modules.ModuleTemplate.Models.TemplateViewModel>
+﻿@using System.Web.Mvc.Html
+@using HansKindberg.EPiServer.ModuleTemplate.Business
+@inherits System.Web.Mvc.WebViewPage<HansKindberg.EPiServer.ModuleTemplate.Models.ViewModels.TemplateViewModel>
 @{ Layout = Model.GetResourcePath("Views/Shared/_Layout.cshtml"); }
 @section MainContent
 {
-	<p>From main-content</p>
-	
-	<h2>ClientResources - Dojo (ClientResourceType.Style)</h2>
-	<ul>
-		@foreach(var clientResource in Model.Layout.GetClientResources("Dojo", new[] {ClientResourceType.Style}))
+	@if (Model.Tabs != null && Model.Tabs.Any())
+	{
+		<div class="epi-tabView">
+			<ul class="epi-tabView-navigation">
+				@foreach (var tab in Model.Tabs)
+				{
+					<li class="@(tab.Active ? "epi-tabView-navigation-item-selected" : "epi-tabView-navigation-item")"><a class="epi-tabView-tab" href="@tab.Url.PathAndQuery">@tab.LocalName</a></li>
+				}
+			</ul>
+		</div>
+		<div>
+			<p>@Model.ActiveTab.LocalDescription</p>
+		</div>
+		if(Model.ActiveTab != null && Model.ActiveTab.TabType == TemplateTabType.Send)
 		{
-			<li>Name: @clientResource.Name<br />Type: @clientResource.ResourceType</li>
+			Html.RenderPartial(Model.GetResourcePath("Views/Template/Send/Index.cshtml"), Model); 
 		}
-	</ul>
-	
-	<h2>ClientResources - ShellCore</h2>
-	<ul>
-		@foreach (var clientResource in Model.Layout.GetClientResources("ShellCore"))
+		else
 		{
-			<li>Name: @clientResource.Name<br />Type: @clientResource.ResourceType</li>
+			Html.RenderPartial(Model.GetResourcePath("Views/Template/Settings/Index.cshtml"), Model);
 		}
-	</ul>
-	
-	<h2>ClientResources - ShellCoreLightTheme</h2>
-	<ul>
-		@foreach (var clientResource in Model.Layout.GetClientResources("ShellCoreLightTheme"))
-		{
-			<li>Name: @clientResource.Name<br />Type: @clientResource.ResourceType</li>
-		}
-	</ul>
-
-	<h2>ClientResources - ShellCoreLightTheme</h2>
-	<ul>
-		@foreach (var clientResource in Model.Layout.GetClientResources("Navigation"))
-		{
-			<li>Name: @clientResource.Name<br />Type: @clientResource.ResourceType</li>
-		}
-	</ul>
-
-	
-
-
-	
-
-	
-	<table class="epi-default">
-		<tr>
-			<th>
-				Speglingsnamn
-			</th>
-			<th>
-				Status
-			</th>
-			<th>
-				Senaste exekvering
-			</th>
-			<th>
-				Meddelande
-			</th>
-		</tr>
-		<tr>
-			<td>
-				<a href="ContentMirroringServiceEdit.aspx?channel=f54a8dda-7912-4c74-b735-0b5fd14b8f8d">
-					Test 1
-				</a>
-			</td>
-			<td></td>
-			<td></td>
-			<td>
-				<img src="/App_Themes/Default/Images/Tools/Clear.gif" />
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<a href="ContentMirroringServiceEdit.aspx?channel=0e698d45-feec-4119-a511-20a7c0cdf280">
-					Test 2
-				</a>
-			</td>
-			<td></td>
-			<td></td>
-			<td>
-				<img src="/App_Themes/Default/Images/Tools/Clear.gif" />
-			</td>
-		</tr>
-	</table>
+	}
 }

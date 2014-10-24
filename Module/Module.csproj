@@ -12,8 +12,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HansKindberg.EPiServer.Modules.ModuleTemplate</RootNamespace>
-    <AssemblyName>HansKindberg.EPiServer.Modules.ModuleTemplate</AssemblyName>
+    <RootNamespace>HansKindberg.EPiServer.ModuleTemplate</RootNamespace>
+    <AssemblyName>HansKindberg.EPiServer.ModuleTemplate</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -178,8 +178,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\Initialization\InitializationModule.cs" />
+    <Compile Include="Business\ITemplateTab.cs" />
+    <Compile Include="Business\TemplateTab.cs" />
+    <Compile Include="Business\TemplateTabType.cs" />
     <Compile Include="Controllers\TemplateController.cs" />
-    <Compile Include="Models\TemplateViewModel.cs" />
+    <Compile Include="Models\Forms\MessageForm.cs" />
+    <Compile Include="Models\ViewModels\TemplateViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="..\Properties\Solution-AssemblyInfo.cs">
       <Link>Properties\Solution-AssemblyInfo.cs</Link>
@@ -210,6 +214,8 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Template\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Template\Send\Index.cshtml" />
+    <Content Include="Views\Template\Settings\Index.cshtml" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -220,6 +226,14 @@
     <ProjectReference Include="..\HansKindberg.EPiServer.Shell\HansKindberg.EPiServer.Shell.csproj">
       <Project>{9e3ae432-61e0-4f2d-bc5a-1fbd0700593e}</Project>
       <Name>HansKindberg.EPiServer.Shell</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HansKindberg.Web\HansKindberg.Web.csproj">
+      <Project>{bd71326e-22a6-404e-a50a-549247a0a706}</Project>
+      <Name>HansKindberg.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HansKindberg\HansKindberg.csproj">
+      <Project>{75bdea9b-8da8-42aa-9d38-86e2d8fc2b1e}</Project>
+      <Name>HansKindberg</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

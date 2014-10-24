@@ -4,7 +4,7 @@
 	{
 		#region Fields
 
-		public const string Modules = "/modules";
+		public const string Plugins = "/plugins";
 
 		#endregion
 	}

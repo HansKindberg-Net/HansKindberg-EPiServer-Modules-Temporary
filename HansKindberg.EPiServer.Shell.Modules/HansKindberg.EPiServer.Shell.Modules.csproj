@@ -116,6 +116,9 @@
     </Compile>
     <Compile Include="IResourcePathResolver.cs" />
     <Compile Include="Web\Mvc\Controllers\Controller.cs" />
+    <Compile Include="Web\Mvc\Extensions\DefaultHtmlHelperExtension.cs" />
+    <Compile Include="Web\Mvc\Extensions\HtmlHelperExtension.cs" />
+    <Compile Include="Web\Mvc\Extensions\IHtmlHelperExtension.cs" />
     <Compile Include="Web\Mvc\Models\ILayoutModel.cs" />
     <Compile Include="Web\Mvc\Models\ILayoutViewModel.cs" />
     <Compile Include="Web\Mvc\Models\IViewModelFactory.cs" />
@@ -142,6 +145,10 @@
     <ProjectReference Include="..\HansKindberg.EPiServer.Shell\HansKindberg.EPiServer.Shell.csproj">
       <Project>{9e3ae432-61e0-4f2d-bc5a-1fbd0700593e}</Project>
       <Name>HansKindberg.EPiServer.Shell</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HansKindberg.Web\HansKindberg.Web.csproj">
+      <Project>{bd71326e-22a6-404e-a50a-549247a0a706}</Project>
+      <Name>HansKindberg.Web</Name>
     </ProjectReference>
     <ProjectReference Include="..\HansKindberg\HansKindberg.csproj">
       <Project>{75bdea9b-8da8-42aa-9d38-86e2d8fc2b1e}</Project>

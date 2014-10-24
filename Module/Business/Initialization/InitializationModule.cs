@@ -1,4 +1,4 @@
-﻿namespace HansKindberg.EPiServer.Modules.ModuleTemplate.Business.Initialization
+﻿namespace HansKindberg.EPiServer.ModuleTemplate.Business.Initialization
 {
 	public class InitializationModule {}
 }
