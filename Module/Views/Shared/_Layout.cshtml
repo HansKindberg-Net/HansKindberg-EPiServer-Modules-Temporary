@@ -6,7 +6,7 @@
 <html lang="@Model.Layout.UiCulture.Name">
 	<head>
 		<title>@Model.Layout.Title</title>
-		@Html.ClientResources(Model.Layout.GetClientResources("Dojo", new[] { ClientResourceType.Style }))
+		@Html.ClientResources(Model.Layout.GetClientResources("Dojo", new[] {ClientResourceType.Style}))
 		@Html.ClientResources(Model.Layout.GetClientResources("ShellCore"))
 		@Html.ClientResources(Model.Layout.GetClientResources("ShellCoreLightTheme"))
 		@Html.ClientResources(Model.Layout.GetClientResources("Navigation"))

@@ -4,11 +4,11 @@
 @{ Layout = Model.GetResourcePath("Views/Shared/_Layout.cshtml"); }
 @section MainContent
 {
-	@if (Model.Tabs != null && Model.Tabs.Any())
+	@if(Model.Tabs != null && Model.Tabs.Any())
 	{
 		<div class="epi-tabView">
 			<ul class="epi-tabView-navigation">
-				@foreach (var tab in Model.Tabs)
+				@foreach(var tab in Model.Tabs)
 				{
 					<li class="@(tab.Active ? "epi-tabView-navigation-item-selected" : "epi-tabView-navigation-item")"><a class="epi-tabView-tab" href="@tab.Url.PathAndQuery">@tab.LocalName</a></li>
 				}
@@ -19,7 +19,7 @@
 		</div>
 		if(Model.ActiveTab != null && Model.ActiveTab.TabType == TemplateTabType.Send)
 		{
-			Html.RenderPartial(Model.GetResourcePath("Views/Template/Send/Index.cshtml"), Model); 
+			Html.RenderPartial(Model.GetResourcePath("Views/Template/Send/Index.cshtml"), Model);
 		}
 		else
 		{
