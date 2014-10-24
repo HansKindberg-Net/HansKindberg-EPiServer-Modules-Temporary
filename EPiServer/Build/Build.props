@@ -2,6 +2,7 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<CopyFilesMessageImportance Condition="$(CopyFilesMessageImportance) == ''">high</CopyFilesMessageImportance>
+		<CopyModuleOnBuild Condition="$(CopyModuleOnBuild) == ''">false</CopyModuleOnBuild>
 		<PackagesDirectory Condition="$(PackagesDirectory) == ''">$(SolutionDir)packages\</PackagesDirectory>
 		<PublishMessageImportance Condition="$(PublishMessageImportance) == ''">high</PublishMessageImportance>
 	</PropertyGroup>
@@ -18,15 +19,13 @@
 			<CopyAlways>true</CopyAlways>
 			<DestinationFile>Modules\_protected\$([System.IO.Directory]::GetParent('%(Identity)').Name)\%(Filename)%(Extension)</DestinationFile>
 		</FileToCopy>
-		<!--
-		<FileToCopy Include="$(SolutionDir)Module\Views\**\*">
+		<FileToCopy Include="$(SolutionDir)Module\Views\**\*" Condition="$(CopyModuleOnBuild)">
 			<CopyAlways>true</CopyAlways>
 			<DestinationFile>Modules\_protected\HansKindberg.EPiServer.Modules.ModuleTemplate\Views\%(RecursiveDir)%(Filename)%(Extension)</DestinationFile>
 		</FileToCopy>
-		<FileToCopy Include="$(SolutionDir)Module\Module.config">
+		<FileToCopy Include="$(SolutionDir)Module\Module.config" Condition="$(CopyModuleOnBuild)">
 			<CopyAlways>true</CopyAlways>
 			<DestinationFile>Modules\_protected\HansKindberg.EPiServer.Modules.ModuleTemplate\Module.config</DestinationFile>
 		</FileToCopy>
-		-->
 	</ItemGroup>
 </Project>

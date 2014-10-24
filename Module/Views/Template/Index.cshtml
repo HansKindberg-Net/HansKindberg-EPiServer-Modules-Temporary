@@ -1,10 +1,49 @@
-﻿@inherits System.Web.Mvc.WebViewPage<HansKindberg.EPiServer.Modules.ModuleTemplate.Models.TemplateViewModel>
+﻿@using EPiServer.Framework.Web.Resources
+@inherits System.Web.Mvc.WebViewPage<HansKindberg.EPiServer.Modules.ModuleTemplate.Models.TemplateViewModel>
 @{ Layout = Model.GetResourcePath("Views/Shared/_Layout.cshtml"); }
 @section MainContent
 {
 	<p>From main-content</p>
 	
-	<table width="40%" class="epi-default">
+	<h2>ClientResources - Dojo (ClientResourceType.Style)</h2>
+	<ul>
+		@foreach(var clientResource in Model.Layout.GetClientResources("Dojo", new[] {ClientResourceType.Style}))
+		{
+			<li>Name: @clientResource.Name<br />Type: @clientResource.ResourceType</li>
+		}
+	</ul>
+	
+	<h2>ClientResources - ShellCore</h2>
+	<ul>
+		@foreach (var clientResource in Model.Layout.GetClientResources("ShellCore"))
+		{
+			<li>Name: @clientResource.Name<br />Type: @clientResource.ResourceType</li>
+		}
+	</ul>
+	
+	<h2>ClientResources - ShellCoreLightTheme</h2>
+	<ul>
+		@foreach (var clientResource in Model.Layout.GetClientResources("ShellCoreLightTheme"))
+		{
+			<li>Name: @clientResource.Name<br />Type: @clientResource.ResourceType</li>
+		}
+	</ul>
+
+	<h2>ClientResources - ShellCoreLightTheme</h2>
+	<ul>
+		@foreach (var clientResource in Model.Layout.GetClientResources("Navigation"))
+		{
+			<li>Name: @clientResource.Name<br />Type: @clientResource.ResourceType</li>
+		}
+	</ul>
+
+	
+
+
+	
+
+	
+	<table class="epi-default">
 		<tr>
 			<th>
 				Speglingsnamn

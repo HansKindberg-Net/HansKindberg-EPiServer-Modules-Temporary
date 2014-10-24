@@ -98,12 +98,12 @@ namespace HansKindberg.EPiServer.Shell.Modules.Web.Mvc.Models
 
 		#region Methods
 
-		public virtual IEnumerable<ClientResource> GetClientResource(string name)
+		public virtual IEnumerable<ClientResource> GetClientResources(string name)
 		{
 			return this.ClientResourceService.GetClientResources(name);
 		}
 
-		public virtual IEnumerable<ClientResource> GetClientResource(string name, IEnumerable<ClientResourceType> resourceTypes)
+		public virtual IEnumerable<ClientResource> GetClientResources(string name, IEnumerable<ClientResourceType> resourceTypes)
 		{
 			return this.ClientResourceService.GetClientResources(name, (resourceTypes ?? Enumerable.Empty<ClientResourceType>()).ToArray());
 		}

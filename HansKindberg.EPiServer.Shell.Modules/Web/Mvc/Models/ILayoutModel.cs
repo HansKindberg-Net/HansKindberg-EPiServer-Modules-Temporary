@@ -20,8 +20,8 @@ namespace HansKindberg.EPiServer.Shell.Modules.Web.Mvc.Models
 
 		#region Methods
 
-		IEnumerable<ClientResource> GetClientResource(string name);
-		IEnumerable<ClientResource> GetClientResource(string name, IEnumerable<ClientResourceType> resourceTypes);
+		IEnumerable<ClientResource> GetClientResources(string name);
+		IEnumerable<ClientResource> GetClientResources(string name, IEnumerable<ClientResourceType> resourceTypes);
 
 		#endregion
 	}
