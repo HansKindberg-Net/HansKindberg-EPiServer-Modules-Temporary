@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<languages>
+	<language id="sv" name="svenska">
+		<modules>
+			<template>
+				<description>Modul-mall beskrivning</description>
+				<name>Modul-mall namn</name>
+			</template>
+		</modules>
+	</language>
+</languages>

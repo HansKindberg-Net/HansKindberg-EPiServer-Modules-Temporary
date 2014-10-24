@@ -1,6 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
-		<PostBuildEvent>"$(SolutionDir).nuget\NuGet.exe" pack "$(ProjectPath)" -Properties Configuration=$(ConfigurationName) -IncludeReferencedProjects</PostBuildEvent>
+		<BuildDependsOn>
+			$(BuildDependsOn);
+			CreateNuGetPackage;
+		</BuildDependsOn>
 	</PropertyGroup>
+	<Target Name="CreateNuGetPackage">
+		<!-- Do not use the -IncludeReferencedProjects switch. Handle the dependency manually in *.nuspec instead. -->
+		<Exec
+			Command='$(SolutionDir).nuget\NuGet.exe pack "$(ProjectPath)" -OutputDirectory $(TargetDir) -Properties Configuration=$(ConfigurationName)'
+		/>
+	</Target>
 </Project>

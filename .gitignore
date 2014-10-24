@@ -2,9 +2,10 @@ _ReSharper*/
 App_Data/
 bin/
 debug/
+EPiServer/Modules/*
+EPiServer/modulesbin/
 FakesAssemblies/
 Logs/
-EPiServer/Modules/_protected/**/*.zip
 obj/
 packages/*
 Publish/*
@@ -15,5 +16,8 @@ testresults/
 .nuget/NuGet.exe
 EPiServer/Modules/_protected/repository.config
 
+!EPiServer/Modules/_protected/CMS/Web.config
+!EPiServer/Modules/_protected/EPiServer.Packaging.UI/Web.config
+!EPiServer/Modules/_protected/Shell/Web.config
 !packages/repositories.config
 !Publish/ReadMe.txt

@@ -1,19 +1,124 @@
-﻿@model HansKindberg.EPiServer.Modules.ModuleTemplate.Models.ViewModel
+﻿@using System.Web.Mvc.Html
+@using EPiServer.Framework.Web.Mvc.Html
+@using EPiServer.Framework.Web.Resources
+@inherits System.Web.Mvc.WebViewPage<HansKindberg.EPiServer.Shell.Modules.Web.Mvc.Models.LayoutViewModel>
 <!DOCTYPE html>
 <html lang="@Model.Layout.UiCulture.Name">
 	<head>
 		<title>@Model.Layout.Title</title>
+		<!-- Dojo -->
+		@Html.Raw(new System.Web.UI.Page().ClientResources("Dojo", new[] {ClientResourceType.Style}))
+		<!-- ShellCore -->
+		@Html.Raw(new System.Web.UI.Page().ClientResources("ShellCore"))
+		<!-- ShellCoreLightTheme -->
+		@Html.Raw(new System.Web.UI.Page().ClientResources("ShellCoreLightTheme"))
+		<!-- Navigation -->
+		@Html.Raw(new System.Web.UI.Page().ClientResources("Navigation"))
+		<!-- CMS -->
+		<link type="text/css" rel="stylesheet" href="@Model.GetResourcePath("CMS", "ClientResources/Epi/Base/CMS.css")" />
+		
+		<link href="../../../App_Themes/Default/Styles/system.css" type="text/css" rel="stylesheet" />
+		<link href="../../../App_Themes/Default/Styles/ToolButton.css" type="text/css" rel="stylesheet" />
 	</head>
-	<body>
-		@if(IsSectionDefined("Heading"))
-		{
-			@RenderSection("Heading")
-			;
-		}
-		else
-		{
-			@Html.Partial("~/Views/Shared/Heading.cshtml", Model.Layout)
-		}
-		@RenderSection("MainContent", true)
+	<body id="body">
+		<div class="epi-contentContainer epi-padding">
+			<div class="epi-contentArea">
+				@if(IsSectionDefined("Heading"))
+				{
+					@RenderSection("Heading")
+				}
+				else
+				{
+					@Html.Partial(Model.Layout.GetResourcePath("Views/Shared/Heading.cshtml"), Model.Layout)
+				}
+				<div id="FullRegion_ValidationSummary" class="EP-validationSummary" style="color: Black; display: none;">
+
+				</div>
+			</div>
+			
+			
+			@RenderSection("MainContent", true)
+			
+
+			<div id="jobStatus" class="hidden EP-systemMessage">
+				<ul>
+					<li id="runningState" class="hidden">
+						The job is running.
+						<span id="currentStatusMessage"></span>
+					</li>
+					<li id="stoppingState" class="hidden">
+						The job is stopping.
+					</li>
+					<li id="completedState" class="hidden">
+						The job has completed. Please refresh the page to see the status.
+					</li>
+				</ul>
+			</div>
+			<div class="epi-tabView">
+				<ul class="epi-tabView-navigation">
+					<li id="FullRegion_MainRegion_actionTab_Tab1" onclick=" __doPostBack( & # 39;ctl00$FullRegion$MainRegion$actionTab$Tab1 & # 39;,&# 39;TabClicked & # 39;);return false; " class="epi-tabView-navigation-item-selected"><a class="epi-tabView-tab" href="javascript:void(0)" target="_self">Settings</a></li>
+					<li id="FullRegion_MainRegion_actionTab_Tab2" onclick=" __doPostBack( & # 39;ctl00$FullRegion$MainRegion$actionTab$Tab2 & # 39;,&# 39;TabClicked & # 39;);return false; " class="epi-tabView-navigation-item"><a class="epi-tabView-tab" href="javascript:void(0)" target="_self">History</a></li>
+				</ul>
+			</div>
+			<div id="FullRegion_MainRegion_TabView">
+				<div id="FullRegion_MainRegion_GeneralSettings" style="display: block;">
+					<div class="epi-formArea epi-padding">
+						<div class="epi-size15">
+							<div class="epi-indent">
+								<input id="FullRegion_MainRegion_isActiveInput" type="checkbox" name="ctl00$FullRegion$MainRegion$isActiveInput" onclick=" javascript:setTimeout( & # 39;__doPostBack(\ & # 39;ctl00$FullRegion$MainRegion$isActiveInput\ & # 39;,\ & # 39;\ & # 39;)&# 39;, 0) " />
+								<label for="FullRegion_MainRegion_isActiveInput">Active</label>
+							</div>
+							<div>
+								<label for="FullRegion_MainRegion_frequencyInput">Scheduled job interval</label>
+								<input name="ctl00$FullRegion$MainRegion$frequencyInput" type="text" id="FullRegion_MainRegion_frequencyInput" disabled="disabled" class="epi-tabView-navigation-item-disabled EP-requiredField" />
+								<select name="ctl00$FullRegion$MainRegion$recurrenceInput" id="FullRegion_MainRegion_recurrenceInput" disabled="disabled" class="epi-tabView-navigation-item-disabled">
+									<option value="7">second</option>
+									<option value="6">minute</option>
+									<option value="5">hour</option>
+									<option selected="selected" value="4">day</option>
+									<option value="3">week</option>
+									<option value="2">month</option>
+								</select>
+								<span id="FullRegion_MainRegion_frequencyInputRange" style="visibility: hidden;">*</span>
+								<span id="FullRegion_MainRegion_frequencyInputRequired" style="visibility: hidden;">*</span>
+								<span id="FullRegion_MainRegion_recurrenceInputRequired" style="visibility: hidden;">*</span>
+							</div>
+							<div>
+								<label for="FullRegion_MainRegion_nextExecutionInput">Next scheduled date</label>
+								<div id="FullRegion_MainRegion_nextExecutionInput" disabled="disabled" class="epi-tabView-navigation-item-disabled" class="epiinputdate" style="display: inline;">
+									<input name="ctl00$FullRegion$MainRegion$nextExecutionInput$innerInputControl" type="text" value="2014-10-23 00:00" maxlength="20" size="20" id="FullRegion_MainRegion_nextExecutionInput_innerInputControl" disabled="disabled" class="epi-tabView-navigation-item-disabled episize240" style="display: inline;" />&nbsp;<input name="ctl00$FullRegion$MainRegion$nextExecutionInput$ctl00" type="button" value="..." class="epismallbutton" onclick=" EPi.CreateDateBrowserDialog( & # 39;/EPiServer/CMS / edit / DateBrowser.aspx ? notime = false & amp;buttons = true & # 39;, &# 39;FullRegion_MainRegion_nextExecutionInput_innerInputControl & # 39;, null, true); " disabled="disabled" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="epi-buttonContainer">
+						<span class="epi-cmsButton"><input class="epi-cmsButton-text epi-cmsButton-tools epi-cmsButton-Save" type="submit" name="ctl00$FullRegion$MainRegion$saveChanges" id="FullRegion_MainRegion_saveChanges" value="Save" title="Save" onmouseover=" EPi.ToolButton.MouseDownHandler(this) " onmouseout=" EPi.ToolButton.ResetMouseDownHandler(this) " onclick=" WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions( & quot;ctl00$FullRegion$MainRegion$saveChanges & quot;, &quot;&quot;, true,  &quot;&quot;, &quot;&quot;, false, false)) " /></span><span class="epi-cmsButton"><input class="epi-cmsButton-text epi-cmsButton-tools epi-cmsButton-MySettings" type="submit" name="ctl00$FullRegion$MainRegion$startNowButton" id="FullRegion_MainRegion_startNowButton" value="Start Manually" title="Start Manually" onmouseover=" EPi.ToolButton.MouseDownHandler(this) " onmouseout=" EPi.ToolButton.ResetMouseDownHandler(this) " /></span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	</body>
+
 </html>

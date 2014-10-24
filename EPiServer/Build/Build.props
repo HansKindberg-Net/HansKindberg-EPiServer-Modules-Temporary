@@ -18,5 +18,15 @@
 			<CopyAlways>true</CopyAlways>
 			<DestinationFile>Modules\_protected\$([System.IO.Directory]::GetParent('%(Identity)').Name)\%(Filename)%(Extension)</DestinationFile>
 		</FileToCopy>
+		<!--
+		<FileToCopy Include="$(SolutionDir)Module\Views\**\*">
+			<CopyAlways>true</CopyAlways>
+			<DestinationFile>Modules\_protected\HansKindberg.EPiServer.Modules.ModuleTemplate\Views\%(RecursiveDir)%(Filename)%(Extension)</DestinationFile>
+		</FileToCopy>
+		<FileToCopy Include="$(SolutionDir)Module\Module.config">
+			<CopyAlways>true</CopyAlways>
+			<DestinationFile>Modules\_protected\HansKindberg.EPiServer.Modules.ModuleTemplate\Module.config</DestinationFile>
+		</FileToCopy>
+		-->
 	</ItemGroup>
 </Project>

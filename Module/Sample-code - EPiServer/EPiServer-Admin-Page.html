@@ -1,0 +1,86 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<head>
+		<title>DatabaseJob</title>
+		<!-- Mimic Internet Explorer 7 -->
+		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+		<link rel="stylesheet" type="text/css" href="/EPiServer/Shell/7.15.0.0/ClientResources/epi/themes/legacy/ShellCore.css" />
+		<script type="text/javascript" src="/EPiServer/Shell/7.15.0.0/ClientResources/ShellCore.js"></script>
+		<link rel="stylesheet" type="text/css" href="/EPiServer/Shell/7.15.0.0/ClientResources/epi/themes/legacy/ShellCoreLightTheme.css" />
+		<script type="text/javascript" src="/EPiServer/CMS/7.15.0.0/ClientResources/ReportCenter/ReportCenter.js"></script>
+		<link type="text/css" rel="stylesheet" href="/EPiServer/CMS/7.15.0.0/ClientResources/Epi/Base/CMS.css" />
+		<link href="../../../App_Themes/Default/Styles/system.css" type="text/css" rel="stylesheet" />
+		<link href="../../../App_Themes/Default/Styles/ToolButton.css" type="text/css" rel="stylesheet" />
+	</head>
+	<body id="body">
+		<form method="post" action="DatabaseJob.aspx?pluginId=15" onsubmit="javascript:return WebForm_OnSubmit();" id="aspnetForm" novalidate="true">
+			<div class="epi-contentContainer epi-padding">
+				<div class="epi-contentArea">
+					<h1 class="EP-prefix">
+						Mirroring Service<a onclick="window.open(&#39;http://webhelp.episerver.com/cms/7.5/en/Default_csh.htm#mirroringjob&#39;,&#39;_blank&#39;, &#39;scrollbars=yes, height=500, location=no, menubar=no, resizable=yes, toolbar=no, width=840&#39;);return false;" title="Help" href="http://webhelp.episerver.com/cms/7.5/en/Default_csh.htm#mirroringjob" target="_blank"><img class="EPEdit-CommandTool" align="absmiddle" src="/App_Themes/Default/Images/Tools/Help.png" border="0" alt="Help" /></a>
+					</h1>
+					<p class="EP-systemInfo">Specify whether the mirroring function is active/inactive and how often the job should be run. The mirroring service allows you to set how often the system activates content mirroring.</p>
+					<div id="FullRegion_ValidationSummary" class="EP-validationSummary" style="color:Black;display:none;">
+
+					</div>
+				</div>
+				<div id="jobStatus" class="hidden EP-systemMessage">
+					<ul>
+						<li id="runningState" class="hidden">
+							The job is running.
+							<span id="currentStatusMessage"></span>
+						</li>
+						<li id="stoppingState" class="hidden">
+							The job is stopping.
+						</li>
+						<li id="completedState" class="hidden">
+							The job has completed. Please refresh the page to see the status.
+						</li>
+					</ul>
+				</div>
+				<div class="epi-tabView">
+					<ul class="epi-tabView-navigation">
+						<li id="FullRegion_MainRegion_actionTab_Tab1" onclick="__doPostBack(&#39;ctl00$FullRegion$MainRegion$actionTab$Tab1&#39;,&#39;TabClicked&#39;);return false;" class="epi-tabView-navigation-item-selected"><a class="epi-tabView-tab" href="javascript:void(0)" target="_self">Settings</a></li>
+						<li id="FullRegion_MainRegion_actionTab_Tab2" onclick="__doPostBack(&#39;ctl00$FullRegion$MainRegion$actionTab$Tab2&#39;,&#39;TabClicked&#39;);return false;" class="epi-tabView-navigation-item"><a class="epi-tabView-tab" href="javascript:void(0)" target="_self">History</a></li>
+					</ul>
+				</div>
+				<div id="FullRegion_MainRegion_TabView">
+					<div id="FullRegion_MainRegion_GeneralSettings" style="display:block;">
+						<div class="epi-formArea epi-padding">
+							<div class="epi-size15">
+								<div class="epi-indent">
+									<input id="FullRegion_MainRegion_isActiveInput" type="checkbox" name="ctl00$FullRegion$MainRegion$isActiveInput" onclick="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$FullRegion$MainRegion$isActiveInput\&#39;,\&#39;\&#39;)&#39;, 0)" />
+									<label for="FullRegion_MainRegion_isActiveInput">Active</label>
+								</div>
+								<div>
+									<label for="FullRegion_MainRegion_frequencyInput">Scheduled job interval</label>
+									<input name="ctl00$FullRegion$MainRegion$frequencyInput" type="text" id="FullRegion_MainRegion_frequencyInput" disabled="disabled" class="epi-tabView-navigation-item-disabled EP-requiredField" />
+									<select name="ctl00$FullRegion$MainRegion$recurrenceInput" id="FullRegion_MainRegion_recurrenceInput" disabled="disabled" class="epi-tabView-navigation-item-disabled">
+										<option value="7">second</option>
+										<option value="6">minute</option>
+										<option value="5">hour</option>
+										<option selected="selected" value="4">day</option>
+										<option value="3">week</option>
+										<option value="2">month</option>
+									</select>
+									<span id="FullRegion_MainRegion_frequencyInputRange" style="visibility:hidden;">*</span>
+									<span id="FullRegion_MainRegion_frequencyInputRequired" style="visibility:hidden;">*</span>
+									<span id="FullRegion_MainRegion_recurrenceInputRequired" style="visibility:hidden;">*</span>
+								</div>
+								<div>
+									<label for="FullRegion_MainRegion_nextExecutionInput">Next scheduled date</label>
+									<div id="FullRegion_MainRegion_nextExecutionInput" disabled="disabled" class="epi-tabView-navigation-item-disabled" class="epiinputdate" style="display: inline;">
+										<input name="ctl00$FullRegion$MainRegion$nextExecutionInput$innerInputControl" type="text" value="2014-10-23 00:00" maxlength="20" size="20" id="FullRegion_MainRegion_nextExecutionInput_innerInputControl" disabled="disabled" class="epi-tabView-navigation-item-disabled episize240" style="display: inline;" />&nbsp;<input name="ctl00$FullRegion$MainRegion$nextExecutionInput$ctl00" type="button" value="..." class="epismallbutton" onclick="EPi.CreateDateBrowserDialog(&#39;/EPiServer/CMS/edit/DateBrowser.aspx?notime=false&amp;buttons=true&#39;, &#39;FullRegion_MainRegion_nextExecutionInput_innerInputControl&#39;, null, true);" disabled="disabled" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="epi-buttonContainer">
+							<span class="epi-cmsButton"><input class="epi-cmsButton-text epi-cmsButton-tools epi-cmsButton-Save" type="submit" name="ctl00$FullRegion$MainRegion$saveChanges" id="FullRegion_MainRegion_saveChanges" value="Save" title="Save" onmouseover="EPi.ToolButton.MouseDownHandler(this)" onmouseout="EPi.ToolButton.ResetMouseDownHandler(this)" onclick="WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$FullRegion$MainRegion$saveChanges&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" /></span><span class="epi-cmsButton"><input class="epi-cmsButton-text epi-cmsButton-tools epi-cmsButton-MySettings" type="submit" name="ctl00$FullRegion$MainRegion$startNowButton" id="FullRegion_MainRegion_startNowButton" value="Start Manually" title="Start Manually" onmouseover="EPi.ToolButton.MouseDownHandler(this)" onmouseout="EPi.ToolButton.ResetMouseDownHandler(this)" /></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</body>
+</html>

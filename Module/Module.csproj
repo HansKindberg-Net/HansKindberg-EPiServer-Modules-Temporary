@@ -178,12 +178,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\Initialization\InitializationModule.cs" />
-    <Compile Include="Controllers\Controller.cs" />
     <Compile Include="Controllers\TemplateController.cs" />
-    <Compile Include="Models\ILayoutModel.cs" />
-    <Compile Include="Models\LayoutModel.cs" />
     <Compile Include="Models\TemplateViewModel.cs" />
-    <Compile Include="Models\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="..\Properties\Solution-AssemblyInfo.cs">
       <Link>Properties\Solution-AssemblyInfo.cs</Link>
@@ -201,29 +197,34 @@
     <None Include="..\Signing\HansKindberg.snk">
       <Link>HansKindberg.snk</Link>
     </None>
-    <None Include="Module.config">
-      <SubType>Designer</SubType>
-    </None>
+    <Content Include="Module.config" />
+    <EmbeddedResource Include="Resources\LanguageFiles\Views-en.xml" />
+    <EmbeddedResource Include="Resources\LanguageFiles\Views-sv.xml" />
+    <None Include="Sample-code - EPiServer\EPi-CMS-Module.config" />
+    <None Include="Sample-code - EPiServer\EPi-Shell-Module.config" />
+    <None Include="Sample-code - EPiServer\EPiServerUI.Master" />
     <None Include="Module.nuspec" />
-    <Content Include="Web.config" />
-    <Content Include="packages.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Web.config" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Template\Index.cshtml" />
+    <None Include="packages.config" />
+    <None Include="Sample-code - EPiServer\EPiServer-Admin-Page.html" />
     <Content Include="Views\Shared\Heading.cshtml" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Template\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HansKindberg.EPiServer.Modules\HansKindberg.EPiServer.Modules.csproj">
+    <ProjectReference Include="..\HansKindberg.EPiServer.Shell.Modules\HansKindberg.EPiServer.Shell.Modules.csproj">
       <Project>{b5a10fdd-011f-4214-91ce-ed2cccbe7fe7}</Project>
-      <Name>HansKindberg.EPiServer.Modules</Name>
+      <Name>HansKindberg.EPiServer.Shell.Modules</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HansKindberg.EPiServer.Shell\HansKindberg.EPiServer.Shell.csproj">
+      <Project>{9e3ae432-61e0-4f2d-bc5a-1fbd0700593e}</Project>
+      <Name>HansKindberg.EPiServer.Shell</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ClientResources\Scripts\" />
+    <Folder Include="ClientResources\Style\Images\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

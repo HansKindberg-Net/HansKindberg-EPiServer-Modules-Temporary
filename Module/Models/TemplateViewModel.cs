@@ -1,19 +1,13 @@
-﻿namespace HansKindberg.EPiServer.Modules.ModuleTemplate.Models
+﻿using EPiServer.Framework.Localization;
+using HansKindberg.EPiServer.Shell.Modules.Web.Mvc.Models;
+
+namespace HansKindberg.EPiServer.Modules.ModuleTemplate.Models
 {
-	public class TemplateViewModel : ViewModel
+	public class TemplateViewModel : LayoutViewModel
 	{
 		#region Constructors
 
-		public TemplateViewModel(ILayoutModel layout) : base(layout) {}
-
-		#endregion
-
-		#region Properties
-
-		public virtual string Heading
-		{
-			get { return "Heading coming from the view-model."; }
-		}
+		public TemplateViewModel(ILayoutModel layout, LocalizationService localizationService) : base(layout, localizationService) {}
 
 		#endregion
 	}

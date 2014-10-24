@@ -15,5 +15,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle(AssemblyInfo.AssemblyName)]
 #pragma warning restore 436
 
-[assembly: AssemblyVersion("0.0.*")]
 [assembly: ComVisible(false)]

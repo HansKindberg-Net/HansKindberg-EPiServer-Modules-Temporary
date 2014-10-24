@@ -5,9 +5,9 @@
 		<Rule Id="CA1006" Action="None" />
 		<Rule Id="CA1020" Action="None" />
 		<Rule Id="CA1303" Action="None" />
+		<Rule Id="CA2243" Action="None" />
 		<!--
 		<Rule Id="CA1903" Action="None" />
-		<Rule Id="CA2243" Action="None" />
 		-->
 	</Rules>
 </RuleSet>

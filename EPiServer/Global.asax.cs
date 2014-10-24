@@ -17,17 +17,5 @@ namespace HansKindberg.EPiServer.Modules.TestApplication
 		}
 
 		#endregion
-
-		//protected override void RegisterRoutes(RouteCollection routes)
-		//{
-		//	base.RegisterRoutes(routes);
-
-		//	if(routes == null)
-		//		throw new ArgumentNullException("routes");
-
-		//	routes.MapRoute("Authentication", "Authentication/{action}", new {controller = "Authentication", action = "Index"});
-
-		//	//routes.MapRoute("UI", "EPiServer/CMS/Admin/{controller}/{action}", new {action = "Index"});
-		//}
 	}
 }

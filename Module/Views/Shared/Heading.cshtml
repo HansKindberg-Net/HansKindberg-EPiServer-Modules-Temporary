@@ -1,2 +1,3 @@
-﻿@model HansKindberg.EPiServer.Modules.ModuleTemplate.Models.ILayoutModel
-<h1>@Model.Heading</h1>
+﻿@inherits System.Web.Mvc.WebViewPage<HansKindberg.EPiServer.Shell.Modules.Web.Mvc.Models.ILayoutModel>
+<h1 class="EP-prefix">@Model.Name</h1>
+<p class="EP-systemInfo">@Model.Description</p>

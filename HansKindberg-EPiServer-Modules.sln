@@ -32,8 +32,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module", "Module\Module.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPiServer", "EPiServer\EPiServer.csproj", "{9B8CAB5B-9599-490E-B29C-D7DB9C3A2D37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HansKindberg.EPiServer.Modules", "HansKindberg.EPiServer.Modules\HansKindberg.EPiServer.Modules.csproj", "{B5A10FDD-011F-4214-91CE-ED2CCCBE7FE7}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{BCFF4D0B-3175-438F-A9F4-05F933FAEFA2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{06F65A60-A19D-47CB-875A-D8920E22EF83}"
@@ -51,6 +49,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{
 		ReadMe.md = ReadMe.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HansKindberg.EPiServer", "HansKindberg.EPiServer\HansKindberg.EPiServer.csproj", "{F50A3FD1-0B60-46C2-A8DC-02E800D81E2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HansKindberg", "HansKindberg\HansKindberg.csproj", "{75BDEA9B-8DA8-42AA-9D38-86E2D8FC2B1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HansKindberg.Web.Mvc", "HansKindberg.Web.Mvc\HansKindberg.Web.Mvc.csproj", "{1E1D58D9-2DD9-46E0-9F37-81700CAC41EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HansKindberg.Abstractions", "HansKindberg.Abstractions\HansKindberg.Abstractions.csproj", "{39B3C1AC-D0FC-465C-BFE9-2721729280F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HansKindberg.EPiServer.Shell", "HansKindberg.EPiServer.Shell\HansKindberg.EPiServer.Shell.csproj", "{9E3AE432-61E0-4F2D-BC5A-1FBD0700593E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HansKindberg.EPiServer.Shell.Modules", "HansKindberg.EPiServer.Shell.Modules\HansKindberg.EPiServer.Shell.Modules.csproj", "{B5A10FDD-011F-4214-91CE-ED2CCCBE7FE7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +75,26 @@ Global
 		{9B8CAB5B-9599-490E-B29C-D7DB9C3A2D37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B8CAB5B-9599-490E-B29C-D7DB9C3A2D37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B8CAB5B-9599-490E-B29C-D7DB9C3A2D37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F50A3FD1-0B60-46C2-A8DC-02E800D81E2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F50A3FD1-0B60-46C2-A8DC-02E800D81E2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F50A3FD1-0B60-46C2-A8DC-02E800D81E2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F50A3FD1-0B60-46C2-A8DC-02E800D81E2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75BDEA9B-8DA8-42AA-9D38-86E2D8FC2B1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75BDEA9B-8DA8-42AA-9D38-86E2D8FC2B1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75BDEA9B-8DA8-42AA-9D38-86E2D8FC2B1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75BDEA9B-8DA8-42AA-9D38-86E2D8FC2B1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E1D58D9-2DD9-46E0-9F37-81700CAC41EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E1D58D9-2DD9-46E0-9F37-81700CAC41EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E1D58D9-2DD9-46E0-9F37-81700CAC41EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E1D58D9-2DD9-46E0-9F37-81700CAC41EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39B3C1AC-D0FC-465C-BFE9-2721729280F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39B3C1AC-D0FC-465C-BFE9-2721729280F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39B3C1AC-D0FC-465C-BFE9-2721729280F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39B3C1AC-D0FC-465C-BFE9-2721729280F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E3AE432-61E0-4F2D-BC5A-1FBD0700593E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E3AE432-61E0-4F2D-BC5A-1FBD0700593E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E3AE432-61E0-4F2D-BC5A-1FBD0700593E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E3AE432-61E0-4F2D-BC5A-1FBD0700593E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B5A10FDD-011F-4214-91CE-ED2CCCBE7FE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B5A10FDD-011F-4214-91CE-ED2CCCBE7FE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5A10FDD-011F-4214-91CE-ED2CCCBE7FE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
